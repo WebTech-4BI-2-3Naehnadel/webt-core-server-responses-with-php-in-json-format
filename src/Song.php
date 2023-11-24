@@ -2,7 +2,7 @@
 
 namespace src;
 
-class Song extends OST {
+class Song implements \JsonSerializable {
 
     public function __construct(
         public int $id,
@@ -11,6 +11,16 @@ class Song extends OST {
         public int $tracknum,
         public int $duration
         )
+    {}
+
+    public function jsonSerialize(): mixed
     {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'artist' => $this->artist,
+            'tracknumber' => $this->tracknum,
+            'duration' => $this->duration
+        );
     }
 }

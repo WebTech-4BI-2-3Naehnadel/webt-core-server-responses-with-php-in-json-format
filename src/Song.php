@@ -9,7 +9,7 @@ class Song implements \JsonSerializable {
         public string $name,
         public string $artist,
         public int $tracknum,
-        public int $duration
+        public string $duration
         )
     {}
 

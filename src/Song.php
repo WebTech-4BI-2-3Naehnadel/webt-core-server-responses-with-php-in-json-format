@@ -1,7 +1,5 @@
 <?php
 
-namespace src;
-
 class Song implements \JsonSerializable {
 
     public function __construct(
@@ -13,7 +11,7 @@ class Song implements \JsonSerializable {
         )
     {}
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
         return array(
             'id' => $this->id,

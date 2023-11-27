@@ -1,6 +1,5 @@
 <?php
 
-namespace src;
 class OST implements \JsonSerializable
 {
 
@@ -9,6 +8,7 @@ class OST implements \JsonSerializable
      * @param string $name
      * @param string $vdname
      * @param int $year
+     * @param array $tracklist
      */
     public function __construct (
 
@@ -20,13 +20,14 @@ class OST implements \JsonSerializable
 
     ) {}
 
-    public function jsonSerialize():mixed
+    public function jsonSerialize(): array //Es wird als ein Array zurückgegeben
     {
-        return array(
+        return array(                               // Json Serialze macht eben dieses Key und Value also 'id' (key) => $this->id (value)
             'id' => $this->id,
             'name' => $this->name,
-            'video game name' => $this->vdname,
-            'release year' => $this->year,
+            'video_game_name' => $this->vdname,
+            'release_year' => $this->year,
+            'songs' => $this->tracklist
         );
 
     }
